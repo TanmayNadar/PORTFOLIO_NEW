@@ -10,31 +10,34 @@
     --secondary-color: #f5f5f5; /* Light gray for background sections */
     --text-color: #1a1a1a; /* Dark text for readability */
     --text-muted: #6c757d; /* Muted gray for secondary text */
-    --background: linear-gradient(135deg, #ffffff 0%, #e6f0ff 100%); /* Light gradient */
+    --background: url('cyberBack.jpg') no-repeat center center/cover;
+
     --card-bg: rgba(0, 122, 204, 0.05); /* Subtle card background */
     --border-color: rgba(0, 0, 0, 0.1); /* Light border color */
     --section-gradient: linear-gradient(180deg, #ffffff 0%, #f0f8ff 100%); /* Soft light gradient */
 }
-
 
 body {
     font-family: 'Poppins', sans-serif;
     line-height: 1.6;
     color: var(--text-color);
     background: var(--background);
+
     min-height: 100vh;
 }
 
-body::before {
-    content: "";
-    background: url('cyberBack.jpg') no-repeat center center/cover;
-    filter: blur(8px);
-    position: fixed;
-    top: 0;
-    left: 0;
-    height: 100%;
-    width: 100%;
+/* Background image for entire content */
+.background-wrapper {
+    position: relative;
     z-index: -1;
+    background: var(--background); /* Set image here if you want */
+    background-attachment: fixed; /* Fix the image */
+    background-size: cover; /* Ensure the image covers the full container */
+    min-height: 100vh; 
+}
+.hero, .navbar, .about {
+    position: relative;
+    z-index: 1; /* Ensure these elements stay above the background image */
 }
 
 
@@ -147,6 +150,25 @@ h3 {
     margin: 5px 0;
     transition: all 0.3s ease;
 }
+
+/* Hero Section */
+.hero {
+    min-height: 100vh;
+    padding: 0 5%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 2rem;
+    position: relative;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+
 
 /* Hero Section */
 .hero {
@@ -314,6 +336,8 @@ h3 {
         transform: translateX(50%);
     }
 }
+
+
 
 /* Buttons */
 .btn {
