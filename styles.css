@@ -150,28 +150,38 @@ h3 {
 
 /* Hero Section */
 .hero {
-    min-height: 100vh;
-    padding: 0 5%;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    gap: 2rem;
     position: relative;
+    overflow: hidden;
+    height: 100vh; /* Ensure the hero section takes full height */
 }
 
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+.hero::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-image: url('cyberBack.jpg'); /* Add your image URL here */
+    background-size: cover;
+    background-position: center;
+    filter: blur(8px); /* Apply the blur effect */
+    z-index: -1; /* Keeps the background image behind the content */
+}
+
+.hero-content p {
+    font-size: 1.1rem;
+    color: #f0f0f0 !important;  /* Use !important to override other styles */
+    margin-bottom: 2rem;
+    max-width: 600px;
 }
 
 
 
-/* Hero Section */
 .hero-content {
     flex: 1;
     position: relative;
-    z-index: 1;
+    z-index: 1; /* Ensures content appears above the background image */
 }
 
 .welcome-text {
