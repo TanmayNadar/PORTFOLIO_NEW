@@ -16,6 +16,7 @@
     --section-gradient: linear-gradient(180deg, #ffffff 0%, #f0f8ff 100%); /* Soft light gradient */
 }
 
+
 body {
     font-family: 'Poppins', sans-serif;
     line-height: 1.6;
@@ -23,6 +24,19 @@ body {
     background: var(--background);
     min-height: 100vh;
 }
+
+body::before {
+    content: "";
+    background: url('cyberBack.jpg') no-repeat center center/cover;
+    filter: blur(8px);
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    z-index: -1;
+}
+
 
 /* Typography */
 h1, h2, h3, h4 {
